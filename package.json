@@ -7,12 +7,14 @@
     "start": "docusaurus start",
     "build": "cp node_modules/pocketbase/dist/pocketbase.umd.js static/public/pocketbase.umd.js && docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "dev": "wrangler dev",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.1",
@@ -26,10 +28,12 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241205.0",
     "@docusaurus/module-type-aliases": "^3.8.1",
     "@docusaurus/tsconfig": "^3.8.1",
     "@docusaurus/types": "^3.8.1",
-    "typescript": "~5.6.2"
+    "typescript": "~5.6.2",
+    "wrangler": "^3.99.0"
   },
   "browserslist": {
     "production": [

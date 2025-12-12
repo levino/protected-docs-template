@@ -1,0 +1,15 @@
+name = "protected-docs"
+main = "src/auth.ts"
+compatibility_date = "2025-12-11"
+preview_urls = true
+
+# Static assets configuration for serving Docusaurus build
+[assets]
+directory = "./build"
+binding = "ASSETS"
+# Run worker first to enable authentication middleware
+run_worker_first = true
+# Handle 404s with custom 404.html page
+not_found_handling = "404-page"
+# Auto-handle trailing slashes for HTML files
+html_handling = "auto-trailing-slash"
