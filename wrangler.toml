@@ -1,5 +1,5 @@
 name = "protected-docs-template"
-main = "src/auth.ts"
+main = "functions/auth.ts"
 compatibility_date = "2025-12-11"
 preview_urls = true
 
