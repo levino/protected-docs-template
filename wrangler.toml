@@ -1,4 +1,4 @@
-name = "protected-docs"
+name = "protected-docs-template"
 main = "src/auth.ts"
 compatibility_date = "2025-12-11"
 preview_urls = true
