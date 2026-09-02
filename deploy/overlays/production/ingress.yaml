@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: protected-docs-template-example
+  # DNS for this host points at Cloudflare (proxied, with Cloudflare Access in
+  # front). Let's Encrypt HTTP-01 gets the Access 401, so no cert-manager here;
+  # Cloudflare talks to the origin on its own terms (same as on Coolify).
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: protected-docs-template-example.levinkeller.de
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: protected-docs-template-example
+            port:
+              number: 3000
