@@ -7,7 +7,7 @@ interface Env {
 export default {
 	async fetch(request: Request, env: Env): Promise<Response> {
 		const authResponse = await handleAuthRequest(request, {
-			pocketbaseUrl: "https://api.levinkeller.de",
+			pocketbaseUrl: "https://api.demo.levinkeller.de",
 			groupField: "example",
 		});
 		if (authResponse) {
