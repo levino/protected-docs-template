@@ -62,7 +62,7 @@ spec:
         - name: PORT
           value: "3000"
         - name: POCKETBASE_URL
-          value: "https://api.levinkeller.de"
+          value: "https://api.demo.levinkeller.de"
         - name: POCKETBASE_GROUP
           value: "example"
         volumeMounts:

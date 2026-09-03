@@ -12,7 +12,7 @@ RUN npm run build
 
 FROM ghcr.io/levino/levins-pocketbase-auth-layer:v1
 
-ENV POCKETBASE_URL=https://api.levinkeller.de
+ENV POCKETBASE_URL=https://api.demo.levinkeller.de
 ENV POCKETBASE_GROUP=example
 ENV PORT=8000
 EXPOSE 8000
