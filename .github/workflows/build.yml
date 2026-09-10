@@ -1,0 +1,38 @@
+# Daraus entstehender Check-Name: build
+# Baut die Seite bei jedem Pull Request und bei jedem Push auf main.
+#
+# Warum es das gibt: deploy.yml baut erst NACH dem Merge. Als am 2026-09-08 ein
+# automatisch gemergtes Docusaurus-Minor-Update (3.9.2 -> 3.10.2) die
+# Config-Option `future.experimental_faster` in `future.faster` umbenannte,
+# schlug deshalb erst der Deploy fehl - auf main, mit bereits gemergtem Stand,
+# und die Seite blieb auf dem alten Build stehen. Genau so ist auch dieses Repo
+# rot geworden: `future.v4: true` schaltet seit 3.10 alle Faster-Optionen ein
+# und verlangt das Paket `@docusaurus/faster`, das in den Dependencies fehlte.
+# Dieser Check faengt so etwas im PR ab, bevor er gemergt wird.
+#
+# Hinweis: fuer main ist in diesem Repo kein Ruleset konfiguriert, der Check
+# ist also (noch) nicht als Pflicht-Check erzwungen. Sobald es ein Ruleset gibt,
+# gehoert `build` als required status check hinein.
+name: Build
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          # `engines.node: >=22.0` aus der package.json, wie in deploy.yml.
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
