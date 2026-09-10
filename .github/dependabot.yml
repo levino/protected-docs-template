@@ -121,6 +121,16 @@ updates:
           - "*"
         update-types:
           - major
+    ignore:
+      # TypeScript 7 hat `baseUrl` entfernt (Fehler TS5102). @docusaurus/tsconfig
+      # setzt die Option weiterhin, und unsere tsconfig.json erbt sie -- ein
+      # erbendes tsconfig kann sie nicht abwaehlen. `npm run typecheck` scheitert
+      # deshalb unabhaengig davon, was bei uns in der tsconfig.json steht.
+      # Darum bleibt typescript vorerst auf 5.x. Wieder entfernen, sobald
+      # Docusaurus eine TS7-taugliche tsconfig ausliefert -- dann faellt dieser
+      # Block ersatzlos weg.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: docker
     directory: /
     schedule:
