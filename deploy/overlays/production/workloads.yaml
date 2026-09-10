@@ -23,7 +23,7 @@ spec:
       labels:
         app: protected-docs-template-example
       annotations:
-        levinkeller.de/dist-commit: "0000000000000000000000000000000000000000"
+        levinkeller.de/dist-commit: "5eb462631f2412bf685218861ea8aaac71287327"
     spec:
       enableServiceLinks: false
       initContainers:
