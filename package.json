@@ -25,16 +25,16 @@
     "clsx": "^2.0.0",
     "pocketbase": "^0.28.1",
     "prism-react-renderer": "^2.3.0",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20261009.1",
+    "@cloudflare/workers-types": "^5.20261016.1",
     "@docusaurus/module-type-aliases": "^3.8.1",
     "@docusaurus/tsconfig": "^3.10.2",
     "@docusaurus/types": "^3.8.1",
     "typescript": "~5.9.3",
-    "wrangler": "^4.149.0"
+    "wrangler": "^4.151.0"
   },
   "browserslist": {
     "production": [
