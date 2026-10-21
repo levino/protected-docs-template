@@ -23,7 +23,7 @@ spec:
       labels:
         app: protected-docs-template-example
       annotations:
-        levinkeller.de/dist-commit: "0000000000000000000000000000000000000000"
+        levinkeller.de/dist-commit: "7c3a8bbfa65b4f26041f6849dbfbcfccb0320fba"
     spec:
       # Eigener User-Namespace: root im Container ist auf dem Host kein root.
       hostUsers: false
